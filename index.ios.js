@@ -16,7 +16,7 @@ class RNHighScores extends React.Component {
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       dataSource: ds.cloneWithRows([
-        {label:"A",image:"blue.png"}, {label:"B",image:"blue.png"}, {label:"C",image:"blue.png"}, {label:"D",image:"blue.png"}, {label:"E",image:"blue.png"}, {label:"F",image:"blue.png"}, {label:"G",image:"blue.png"}, {label:"H",image:"blue.png"}
+        [{label:"A",image:"blue.png"}, {label:"B",image:"blue.png"},]
       ])
     };
   }
@@ -35,12 +35,23 @@ class RNHighScores extends React.Component {
   }
   renderRow(rowData) {
     return (
-      <View style={styles.cellStyle}>
-        <Image source={{uri:rowData.image}} style={{width:52,height:52}}/>
-        <Text>{rowData.label}</Text>
+      <View>
+        {this.renderList(rowData)}
       </View>
       
     );
+  }
+  renderList(list){
+    return list.map( item => this.renderItem(item) );
+  }
+
+  renderItem(item) {
+    return (
+           <View style={styles.cellStyle}>             
+           <Image source={{uri:item.image}} style={{width:52,height:52}}/>             
+           <Text>{item.label}</Text>           
+           </View>
+       );
   }
 }
 

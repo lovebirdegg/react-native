@@ -49,7 +49,7 @@
 //    [self.view addSubview:self.recView];
 //    [sheet1 show];
 //    self.view = self.recView;
-    ReactView * reactView = [[ReactView alloc] initWithFrame:CGRectMake(0, 40, CGRectGetWidth(self.view.bounds), 100)];
+    ReactView * reactView = [[ReactView alloc] initWithFrame:CGRectMake(0, 40, CGRectGetWidth(self.view.bounds), 200)];
     [self.view addSubview:reactView];
 
 }
